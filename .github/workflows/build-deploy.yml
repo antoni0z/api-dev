@@ -68,9 +68,10 @@ jobs:
       - name: deploy to ubuntu server
         uses: appleboy/ssh-action@v0.1.10
         with:
-          hosts: ${{secrets.PROD_HOST}}
+          host: ${{secrets.PROD_HOST}}
           username: ${{secrets.PROD_USERNAME}}
           password: ${{secrets.PROD_PASSWORD}}
+          port: ${{secrets.PROD_PORT}}
           script: |
             cd app/src
             git pull
