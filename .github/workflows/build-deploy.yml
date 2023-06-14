@@ -3,7 +3,7 @@ name: Build and Deploy Code
 on: [push,pull_request]
 
 jobs:
-  job1:
+  testing:
     environment: Testing
     env:
       DATABASE_HOSTNAME: ${{secrets.DATABASE_HOSTNAME}}
@@ -60,9 +60,20 @@ jobs:
       #     tags: ${{secrets.DOCKER_HUB_USERNAME}}/fastapi:latest 
 
   deploy:
+    environment: production
     runs-on: ubuntu-latest
     needs: [job1]
 
     steps:
       - name: deploying stuff
         run: echo "going to deploy some stuff"
+      - name: deploy to ubuntu server
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.PROD_HOST }}
+          username: ${{ secrets.PROD_USERNAME }}
+          password: ${{ secrets.PROD_PASSWORD }}
+          script: |
+            cd app/src
+            git pull
+            sudo systemctl restart api
