@@ -30,4 +30,4 @@ app.include_router(vote.router)
 
 @app.get("/") # This is a decorator. Turns it intos an aPI. And the inside is the Path. 
 def root(): #Can be named whatever, better if describes the opeation is doing. 
-    return {"message": "A ver como de sincronizado está G"}
+    return {"message": "A ubuntu ma G"}
