@@ -26,8 +26,8 @@ app.add_middleware(
 app.include_router(post.router)
 app.include_router(user.router)
 app.include_router(auth.router)
-app.include_router(vote.router)
+app.include_router(vote.router) 
 
 @app.get("/") # This is a decorator. Turns it intos an aPI. And the inside is the Path. 
 def root(): #Can be named whatever, better if describes the opeation is doing. 
-    return {"message": "Welcome to my API!!"}
+    return {"message": "A ver como de sincronizado está G"}
