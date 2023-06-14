@@ -66,9 +66,9 @@ jobs:
       name: production
     steps:
       - name: deploy to ubuntu server
-        uses: appleboy/ssh-action@master
+        uses: JimCronqvist/ssh-action@v0.1.10
         with:
-          host: ${{secrets.PROD_HOST}}
+          hosts: ${{secrets.PROD_HOST}}
           username: ${{secrets.PROD_USERNAME}}
           password: ${{secrets.PROD_PASSWORD}}
           script: |
