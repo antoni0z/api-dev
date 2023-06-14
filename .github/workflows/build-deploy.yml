@@ -62,7 +62,7 @@ jobs:
   deploy:
     environment: production
     runs-on: ubuntu-latest
-    needs: [job1]
+    needs: [testing]
 
     steps:
       - name: deploying stuff
